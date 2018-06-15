@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/sfg_dev
+    username: sfg_dev_user
+    password: guru
+    platform: mysql   #这一行决定用哪个数据库
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    database: mysql
+    show-sql: true  #在控制台展示SQL，Dev环境的设置
+    properties: #下面的部分自动把domain中的entity转化成初始化DB的script，放在根目录的guru_database_create.sql，缺点是句尾缺少分号，需要自己加上
+      hibernate:  #加上这一部分就会自动加上分号了，但还有一个缺点是guru_database_create.sql只会不断添加，不会覆盖
+        hbm2ddl:
+          delimiter: ";"
+      javax:
+        persistence:
+          schema-generation:
+            create-source: metadata
+            scripts:
+              action: create
+              create-target: guru_database_create.sql

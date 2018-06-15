@@ -1,0 +1,5 @@
+和mysql的区别只是dependency换了，以及用了gradle
+id从long换成string
+把与jpa和hibernate相关的注解去掉了
+bidirection binding去掉
+recipecommand set变成list

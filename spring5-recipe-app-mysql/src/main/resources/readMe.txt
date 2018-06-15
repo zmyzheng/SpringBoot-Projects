@@ -1,0 +1,8 @@
+data.sql是springboot初始化数据库的默认文件
+默认使用application.properties，这里没有设置db，默认用的是h2， h2会根据domain自动生成schema
+
+如果有application-default.properties，默认就用application-default.properties
+这里如果application-default.properties里设置h2了，所以要把data.sql改成data-h2.sql，data.sql不再被用了
+application-dev里设置platform为mqsql了，这时如果用application-dev，就会自动找data-mysql.sql文件的配置
+
+所以现在的情况是用h2时用recipeBootstrap和data-h2.sql， 用mysql时用bootstrapMysql
