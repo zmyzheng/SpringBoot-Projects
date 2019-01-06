@@ -16,3 +16,6 @@ RestTemplateExamples与其他部分无关，是为了show restTemplate的各种�
 
 加入httpclient dependency的原因是restTemplate底层用的Sun的依赖不支持patch方法
 见RestTemplateExamples的148 149行
+
+WebClient更好的说明见
+https://springframework.guru/spring-5-webclient/
